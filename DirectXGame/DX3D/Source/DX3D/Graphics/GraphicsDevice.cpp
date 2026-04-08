@@ -3,6 +3,7 @@
 #include <DX3D/Graphics/GraphicsDevice.h>
 #include <DX3D/Graphics/DeviceContext.h>
 #include <DX3D/Graphics/ShaderBinary.h>
+#include <DX3D/Graphics/VertexBuffer.h>
 #include <DX3D/Graphics/SwapChain.h>
 
 using namespace dx3d;
@@ -57,6 +58,11 @@ GraphicsPipelineStatePtr dx3d::GraphicsDevice::createGraphicsPipelineState(
 	const GraphicsPipelineStateDesc& desc)
 {
 	return std::make_shared<GraphicsPipelineState>(desc, getGraphicResourceDesc());
+}
+
+VertexBufferPtr dx3d::GraphicsDevice::createVertexBuffer(const VertexBufferDesc& desc)
+{
+	return std::make_shared<VertexBuffer>(desc, getGraphicResourceDesc());
 }
 
 void dx3d::GraphicsDevice::executeCommandList(DeviceContext& context)
